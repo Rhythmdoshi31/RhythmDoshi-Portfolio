@@ -21,9 +21,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <head>
-        <meta name="csrf-token" content={crypto.randomUUID()} />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -52,4 +49,7 @@ export const metadata: Metadata = {
     description: "Full Stack Developer Portfolio",
     images: ["/R.webp"],
   },
+  other: {
+    'csrf-token': crypto.randomUUID()
+  }
 };
