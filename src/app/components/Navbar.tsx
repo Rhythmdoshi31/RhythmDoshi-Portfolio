@@ -6,7 +6,7 @@ export default function Navbar() {
   const [active, setActive] = useState<string | null>(null);
   
   return (
-    <nav className="w-[90%] z-10 absolute top-2 left-[50%] transform -translate-x-1/2 md:w-[45%]">
+    <nav className="w-[75%] z-10 absolute top-2 left-[50%] transform -translate-x-1/2 md:w-[45%]">
       <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item="Navigation">
           <ProductItem description="Landing Page" href="/" /> 

@@ -4,7 +4,7 @@ import { FlipWords } from './ui/flip-words';
 
 const Skills = () => {
   return (
-    <div className="w-full md:w-[80%] lg:w-[52%] mx-auto px-4 mb-32">
+    <div className="w-full md:w-[80%] lg:w-[52%] mx-auto px-4 mb-16 md:mb-28">
           <FlipWords words={["Skills", "SuperPowers", "Weapons"]} className="text-5xl font-bold text-white mb-16 text-center" />
           <CodeBlock
             language="javascript"

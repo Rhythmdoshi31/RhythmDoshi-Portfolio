@@ -31,6 +31,7 @@ export default function RootLayout({
 }
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://rhythmdoshi.vercel.app'),
   title: "Rhythm Doshi",
   description: "Personal Portfolio of Rhythm Doshi - Full Stack Developer",
   keywords: ["Rhythm Doshi", "Full Stack Developer", "Portfolio", "Web Development"],
