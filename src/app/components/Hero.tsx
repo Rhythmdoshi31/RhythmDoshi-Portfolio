@@ -5,7 +5,7 @@ import { TypewriterEffect } from "./ui/typewriter-effect";
 export default function Hero() {
   return (
     <BackgroundGradientAnimation className="absolute z-11 top-[46%] md:top-[53%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center pb-16">
-        <h1 className="text-gray-100 text-center whitespace-nowrap mb-6">Hello, I'm Rhythm. A passionate software Engineer.</h1>
+        <h1 className="text-gray-100 text-center whitespace-nowrap mb-6">Hello, I&apos;m Rhythm. A passionate software Engineer.</h1>
         <TypewriterEffect
           words={[
             { text: "Code", className: "text-blue-500 dark:text-blue-400" },

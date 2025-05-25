@@ -11,7 +11,8 @@ const Button = () => {
         <span>
           Buy Me A Coffee
         </span>
-        <Image src="/converted/coffee.webp" alt="coffee" className="h-[1rem] w-[1rem]" />
+        <Image src="/converted/coffee.webp" alt="coffee" width={16} // 1rem = 16px
+  height={16} className="h-[1rem] w-[1rem]" />
 
       </div>
       <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
