@@ -5,35 +5,42 @@ import Image from 'next/image'
 
 const page = () => {
   return (
-    <div className="h-screen w-full">
-        <Navbar />
-        <BackgroundLines className='flex items-center justify-center'>
-          <div className="flex flex-col items-center justify-center">
-            <div className="flex items-center justify-center">
-              <p className="relative py-8 font-bold text-5xl text-white whitespace-nowrap font-sagite">
-                Buy Me A Coffee
-              </p>
-              <Image 
-                src="/converted/coffee.webp" 
-                alt="coffee" 
-                width={48} 
-                height={48} 
-                priority
-                className="h-[3rem] w-[3rem]"
-              />
-            </div>
-            <h4 className="text-white text-center text-xl mb-8">You can support me by sending a contribution to my PhonePe Id:</h4>
-            <h5 className="text-white text-center text-xl font-bold mb-4">PhonePe Id: <span className="text-blue-500">9981603789@ibl</span></h5>
+    <div className="flex min-h-[100dvh] w-full flex-col overflow-x-hidden">
+      <Navbar />
+      <BackgroundLines className="flex flex-1 flex-col items-center justify-center px-4 py-8">
+        <div className="flex flex-col items-center justify-center text-center space-y-4">
+          <div className="flex items-center justify-center space-x-3">
+            <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-white font-sagite">
+              Buy Me A Coffee
+            </p>
             <Image 
-              src="/converted/qr.webp" 
-              alt="QR" 
-              width={160} 
-              height={160}
+              src="/converted/coffee.webp" 
+              alt="coffee" 
+              width={48} 
+              height={48} 
               priority
-              className="h-[10rem] w-[10rem]"
+              className="w-10 h-10"
             />
           </div>
-        </BackgroundLines>
+
+          <h4 className="text-white text-lg sm:text-xl">
+            You can support me by sending a contribution to my PhonePe Id:
+          </h4>
+
+          <h5 className="text-white text-lg sm:text-xl font-bold">
+            PhonePe Id: <span className="text-blue-500 break-all">9981603789@ibl</span>
+          </h5>
+
+          <Image 
+            src="/converted/qr.webp" 
+            alt="QR" 
+            width={160} 
+            height={160}
+            priority
+            className="w-40 h-40"
+          />
+        </div>
+      </BackgroundLines>
     </div>
   )
 }
