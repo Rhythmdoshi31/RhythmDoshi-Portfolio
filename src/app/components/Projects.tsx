@@ -144,8 +144,8 @@ export function ExpandableCardDemo() {
                 <div className="flex gap-4 flex-col  w-full">
                   <motion.div layoutId={`image-${card.title}-${id}`}>
                     <Image
-                      width={100}
-                      height={100}
+                      width={200}
+                      height={200}
                       src={card.src}
                       alt={card.title}
                       className="h-60 w-full rounded-lg object-cover object-top"
@@ -241,8 +241,8 @@ const cards = [
   },
 
   {
-    description: "BuzzTube",
-    title: "Video Sharing Platform",
+    description: "Video Sharing Platform",
+    title: "BuzzTube",
     src: "/converted/p2.webp",
     ctaText: "Visit",
     ctaLink: "https://buzztube-production.up.railway.app/",

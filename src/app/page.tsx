@@ -33,7 +33,7 @@ export default function Home() {
         <div id="projects" className="mb-20">
           <ExpandableCardDemo />
         </div>
-        <footer id="contact" className="h-screen flex items-center justify-center">
+        <footer id="contact" className="h-screen flex items-center justify-center md:pb-40 lg:pb-0">
           <ContactForm cooldown={cooldown} startCooldown={startCooldown} />
         </footer>
       </div>
