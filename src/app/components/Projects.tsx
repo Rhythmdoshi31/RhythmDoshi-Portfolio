@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useOutsideClick } from "../hooks/use-outside-click";
 import { FlipWords } from "./ui/flip-words";
 import Image from "next/image";
+import { IconBrandGithub } from "@tabler/icons-react";
 
 export function ExpandableCardDemo() {
   const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(
@@ -30,12 +31,17 @@ export function ExpandableCardDemo() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [active]);
 
-  useOutsideClick(ref as React.RefObject<HTMLDivElement>, () => setActive(null));
+  useOutsideClick(ref as React.RefObject<HTMLDivElement>, () =>
+    setActive(null)
+  );
 
   return (
     <div className="h-full w-full rounded-md flex md:items-center md:justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
       <div className="p-4 w-full md:w-[80%] lg:w-[52%] mx-auto relative z-10 pt-20 md:pt-0">
-      <FlipWords words={["Projects", "Builds", "Creations"]} className="text-5xl font-bold text-white mb-16 text-center" />
+        <FlipWords
+          words={["Projects", "Builds", "Creations"]}
+          className="text-5xl font-bold text-white mb-16 text-center"
+        />
         <div>
           <AnimatePresence>
             {active && typeof active === "object" && (
@@ -102,31 +108,48 @@ export function ExpandableCardDemo() {
                         </motion.p>
                       </div>
 
-                      <motion.a
+                      <div className="flex items-center justify-center gap-2">
+                        {active.gitLink && (
+                          <motion.a
+                            layout
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            href={active.gitLink}
+                            target="_blank"
+                            className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-white"
+                          >
+                            <IconBrandGithub stroke={2} />
+                          </motion.a>
+                        )}
+                        {active.ctaLink && (
+                          <motion.a
+                            layout
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            href={active.ctaLink}
+                            target="_blank"
+                            className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-white"
+                          >
+                            {active.ctaText}
+                          </motion.a>
+                        )}
+                      </div>
+                    </div>
+                    <div className="pt-4 relative px-4">
+                      <motion.div
                         layout
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        href={active.ctaLink}
-                        target="_blank"
-                        className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-white"
+                        transition={{ duration: 0.5, ease: "easeInOut" }} // <-- add this line
+                        className="text-neutral-600 text-sm md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
                       >
-                        {active.ctaText}
-                      </motion.a>
-                    </div>
-                    <div className="pt-4 relative px-4">
-                    <motion.div
-                      layout
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.5, ease: "easeInOut" }}  // <-- add this line
-                      className="text-neutral-600 text-sm md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
-                    >
-                      {typeof active.content === "function"
-                        ? active.content()
-                        : active.content}
-                    </motion.div>
+                        {typeof active.content === "function"
+                          ? active.content()
+                          : active.content}
+                      </motion.div>
                     </div>
                   </div>
                 </motion.div>
@@ -215,11 +238,22 @@ const cards = [
     src: "/converted/p1.webp",
     ctaText: "Visit",
     ctaLink: "https://society-sync-neon.vercel.app",
+    gitLink: "https://github.com/Rhythmdoshi31/SocietySync",
     content: () => {
       return (
         <p>
-          SocietySync is a modern web app designed to simplify residential society management. It offers tools for admins, residents, and workers to manage tasks like maintenance, events, payments, notices, and visitor logs—all in one place. <br />
-          Built with a secure backend and a responsive frontend, SocietySync ensures a smooth experience across devices. Key features include <span className="text-green-500 font-semibold">React</span>, <span className="text-blue-500 font-semibold">Node.js</span>, <span className="text-purple-500 font-semibold">Express</span>, and <span className="text-red-500 font-semibold">MongoDB</span>. With role-based access and future-ready upgrades, it brings safety, convenience, and efficiency to every society.
+          SocietySync is a modern web app designed to simplify residential
+          society management. It offers tools for admins, residents, and workers
+          to manage tasks like maintenance, events, payments, notices, and
+          visitor logs—all in one place. <br />
+          Built with a secure backend and a responsive frontend, SocietySync
+          ensures a smooth experience across devices. Key features include{" "}
+          <span className="text-green-500 font-semibold">React</span>,{" "}
+          <span className="text-blue-500 font-semibold">Node.js</span>,{" "}
+          <span className="text-purple-500 font-semibold">Express</span>, and{" "}
+          <span className="text-red-500 font-semibold">MongoDB</span>. With
+          role-based access and future-ready upgrades, it brings safety,
+          convenience, and efficiency to every society.
         </p>
       );
     },
@@ -229,12 +263,23 @@ const cards = [
     title: "CineClair",
     src: "/converted/p4.webp",
     ctaText: "Visit",
-    ctaLink: "https://ui.aceternity.com/templates",
+    ctaLink: "https://cineclair.netlify.app/",
+    gitLink: "https://github.com/Rhythmdoshi31/CINECLAIR",
     content: () => {
       return (
         <p>
-          CINÉCLAIR is a sleek, responsive movie discovery app that lets users explore trending films, popular shows, and actor profiles in real time. With dedicated sections, powerful search, and smooth UI animations, it delivers an immersive browsing experience across devices. <br />
-          Built with <span className="text-green-500 font-semibold">ReactJS</span>, <span className="text-yellow-500 font-semibold">Redux</span>, <span className="text-blue-500 font-semibold">Tailwind CSS</span>, and <span className="text-pink-500 font-semibold">Framer Motion</span>, CINÉCLAIR integrates real-time movie data via API and offers a modern, performant UI.
+          CINÉCLAIR is a sleek, responsive movie discovery app that lets users
+          explore trending films, popular shows, and actor profiles in real
+          time. With dedicated sections, powerful search, and smooth UI
+          animations, it delivers an immersive browsing experience across
+          devices. <br />
+          Built with{" "}
+          <span className="text-green-500 font-semibold">ReactJS</span>,{" "}
+          <span className="text-yellow-500 font-semibold">Redux</span>,{" "}
+          <span className="text-blue-500 font-semibold">Tailwind CSS</span>, and{" "}
+          <span className="text-pink-500 font-semibold">Framer Motion</span>,
+          CINÉCLAIR integrates real-time movie data via API and offers a modern,
+          performant UI.
         </p>
       );
     },
@@ -245,12 +290,21 @@ const cards = [
     title: "BuzzTube",
     src: "/converted/p2.webp",
     ctaText: "Visit",
+    gitLink: "https://github.com/Rhythmdoshi31/BuzzTube",
     ctaLink: "https://buzztube-production.up.railway.app/",
     content: () => {
       return (
         <p>
-          BuzzTube is a full-featured video-sharing platform where users can upload and watch videos and shorts, create personalized channels, and engage through comments and subscriptions. <br />
-          Built using <span className="text-green-500 font-semibold">Node.js</span>, <span className="text-purple-500 font-semibold">Express.js</span>, <span className="text-indigo-500 font-semibold">MongoDB</span>, and <span className="text-red-500 font-semibold">Google OAuth2</span>, BuzzTube offers smooth streaming with Bunny Stream and manages thumbnails with ImageKit.
+          BuzzTube is a full-featured video-sharing platform where users can
+          upload and watch videos and shorts, create personalized channels, and
+          engage through comments and subscriptions. <br />
+          Built using{" "}
+          <span className="text-green-500 font-semibold">Node.js</span>,{" "}
+          <span className="text-purple-500 font-semibold">Express.js</span>,{" "}
+          <span className="text-indigo-500 font-semibold">MongoDB</span>, and{" "}
+          <span className="text-red-500 font-semibold">Google OAuth2</span>,
+          BuzzTube offers smooth streaming with Bunny Stream and manages
+          thumbnails with ImageKit.
         </p>
       );
     },
@@ -260,12 +314,22 @@ const cards = [
     title: "Lively",
     src: "/converted/p3.webp",
     ctaText: "Visit",
+    gitLink: "https://github.com/Rhythmdoshi31/Lively",
     ctaLink: "https://lively-production-bc7c.up.railway.app/",
     content: () => {
       return (
         <p>
-          LivelyChat is an anonymous, real-time chat and video call platform that connects users globally without sign-ups. <br />
-          It uses <span className="text-purple-500 font-semibold">WebSockets</span> for messaging, <span className="text-blue-500 font-semibold">WebRTC</span> for video calls, and is built with <span className="text-green-500 font-semibold">Node.js</span>, <span className="text-indigo-500 font-semibold">Express.js</span>, <span className="text-pink-500 font-semibold">EJS</span>, and <span className="text-yellow-500 font-semibold">TailwindCSS</span> for a smooth and secure experience.
+          LivelyChat is an anonymous, real-time chat and video call platform
+          that connects users globally without sign-ups. <br />
+          It uses{" "}
+          <span className="text-purple-500 font-semibold">WebSockets</span> for
+          messaging, <span className="text-blue-500 font-semibold">WebRTC</span>{" "}
+          for video calls, and is built with{" "}
+          <span className="text-green-500 font-semibold">Node.js</span>,{" "}
+          <span className="text-indigo-500 font-semibold">Express.js</span>,{" "}
+          <span className="text-pink-500 font-semibold">EJS</span>, and{" "}
+          <span className="text-yellow-500 font-semibold">TailwindCSS</span> for
+          a smooth and secure experience.
         </p>
       );
     },
@@ -275,12 +339,21 @@ const cards = [
     title: "HangMan",
     src: "/converted/p5.webp",
     ctaText: "Visit",
-    ctaLink: "https://github.com/Rhythmdoshi31/Hangman-Game",
+    gitLink: "https://github.com/Rhythmdoshi31/Hangman-Game",
     content: () => {
       return (
         <p>
-          React Hangman is a simple and engaging word-guessing game built with <span className="text-green-500 font-semibold">React</span>. It tracks guesses and win/lose conditions through a clean, interactive interface. <br />
-          Setup involves cloning the repo, installing dependencies, and running the dev server — all using modern <span className="text-blue-500 font-semibold">JavaScript</span> and <span className="text-yellow-500 font-semibold">React Hooks</span> for smooth gameplay.
+          React Hangman is a simple and engaging word-guessing game built with{" "}
+          <span className="text-green-500 font-semibold">React</span>. It tracks
+          guesses and win/lose conditions through a clean, interactive
+          interface. <br />
+          Setup involves cloning the repo, installing dependencies, and running
+          the dev server — all using modern{" "}
+          <span className="text-blue-500 font-semibold">
+            JavaScript
+          </span> and{" "}
+          <span className="text-yellow-500 font-semibold">React Hooks</span> for
+          smooth gameplay.
         </p>
       );
     },
@@ -290,15 +363,51 @@ const cards = [
     title: "Axel Agency",
     src: "/converted/p6.webp",
     ctaText: "Visit",
+    gitLink: "https://github.com/Rhythmdoshi31/Axel-Agency-Website",
     ctaLink: "https://axel-agency.netlify.app/",
     content: () => {
       return (
         <p>
-          Axel Agency Website is a modern, visually stunning web experience inspired by Obys Agency, featuring smooth scrolling and dynamic animations. <br />
-          Built with <span className="text-green-500 font-semibold">HTML</span>, <span className="text-blue-500 font-semibold">CSS</span>, <span className="text-purple-500 font-semibold">JavaScript</span>, and libraries like <span className="text-green-500 font-semibold">GSAP</span>, <span className="text-red-500 font-semibold">ScrollTrigger</span>, <span className="text-blue-500 font-semibold">Locomotive Scroll</span>, and SheryJS to create seamless UI/UX and animations.
+          Axel Agency Website is a modern, visually stunning web experience
+          inspired by Obys Agency, featuring smooth scrolling and dynamic
+          animations. <br />
+          Built with <span className="text-green-500 font-semibold">
+            HTML
+          </span>, <span className="text-blue-500 font-semibold">CSS</span>,{" "}
+          <span className="text-purple-500 font-semibold">JavaScript</span>, and
+          libraries like{" "}
+          <span className="text-green-500 font-semibold">GSAP</span>,{" "}
+          <span className="text-red-500 font-semibold">ScrollTrigger</span>,{" "}
+          <span className="text-blue-500 font-semibold">Locomotive Scroll</span>
+          , and SheryJS to create seamless UI/UX and animations.
+        </p>
+      );
+    },
+  },
+  {
+    description: "Nexora (UI)",
+    title: "Nexora",
+    src: "/converted/p8.webp",
+    ctaText: "Visit",
+    gitLink: "https://github.com/Rhythmdoshi31/Nexora-Website",
+    ctaLink: "https://nexora-website.netlify.app",
+    content: () => {
+      return (
+        <p>
+          Nexora is a sleek, interactive UI experience inspired by modern
+          digital design principles, delivering fluid transitions and smooth
+          user interaction. <br />
+          Built with <span className="text-green-500 font-semibold">
+            React
+          </span>,{" "}
+          <span className="text-blue-400 font-semibold">Tailwind CSS</span>,{" "}
+          <span className="text-pink-500 font-semibold">Framer Motion</span>,
+          and{" "}
+          <span className="text-yellow-400 font-semibold">Locomotive Scroll</span>{" "}
+          to craft visually appealing layouts and buttery-smooth scroll
+          animations.
         </p>
       );
     },
   },
 ];
-
