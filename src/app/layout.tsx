@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`min-h-[100dvh] ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`min-h-[100dvh] ${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
         {children}
       </body>
