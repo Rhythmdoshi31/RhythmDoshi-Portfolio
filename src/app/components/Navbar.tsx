@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <nav className="w-[75%] z-10 absolute top-2 left-[50%] transform -translate-x-1/2 md:w-[45%]">
       <Menu setActive={setActive}>
-        <MenuItem setActive={setActive} active={active} item="Navigation">
+        <MenuItem setActive={setActive} active={active} item="Pages">
           <ProductItem description="Landing Page" href="/" /> 
           <ProductItem description="About Me" href="#about" /> 
           <ProductItem description="Skills" href="#skills" /> 

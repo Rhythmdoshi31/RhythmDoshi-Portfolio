@@ -315,7 +315,7 @@ const cards = [
     src: "/converted/p3.webp",
     ctaText: "Visit",
     gitLink: "https://github.com/Rhythmdoshi31/Lively",
-    ctaLink: "https://lively-production-7a4f.up.railway.app/",
+    ctaLink: "https://lively-production-98ec.up.railway.app/",
     content: () => {
       return (
         <p>

@@ -15,7 +15,8 @@ const Skills = () => {
   skills: [
     "Java", "JavaScript", "TypeScript", "Node.js",
     "Express.js", "MongoDB", "React.js", "Redux", "Next.js",
-    "DSA", "GitHub", "TailwindCSS", "StackOverflow Surfing"
+    "PostgreSQL", "MySQL", "DSA", "GitHub", "TailwindCSS",
+    "StackOverflow Surfing"
   ],
   hireable() {
     return (
