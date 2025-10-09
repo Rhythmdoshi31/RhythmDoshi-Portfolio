@@ -19,8 +19,6 @@ export default function Navbar() {
           <ProductItem description="LinkedIn" href="https://www.linkedin.com/in/rhythmdoshi04" /> 
           <ProductItem description="GitHub" href="https://github.com/Rhythmdoshi31" /> 
           <ProductItem description="Leetcode" href="https://leetcode.com/u/Rhythmdoshi31/" />
-          <ProductItem description="Twitter" href="https://x.com/rhythmdoshi04" />
-
         </MenuItem>
         <Button />
       </Menu>

@@ -233,6 +233,20 @@ export const CloseIcon = () => {
 
 const cards = [
   {
+  description: "Google Drive That Feels Right",
+  title: "BetterDrive",
+  src: "/converted/Bdrive.webp",
+  ctaText: "Join Waitlist",
+  ctaLink: "https://betterdrive.rhythmdoshi.site",
+  gitLink: "https://github.com/Rhythmdoshi31/BetterDrive",
+  content: () => {
+    return (
+      <p>
+        BetterDrive is a modern, sleek interface for Google Drive that makes file management faster and more enjoyable. Built with <span className="text-blue-500 font-semibold">TypeScript</span>, <span className="text-purple-500 font-semibold">React</span>, <span className="text-yellow-300 font-semibold">Express</span>, <span className="text-cyan-500 font-semibold">Node.js</span>, <span className="text-green-500 font-semibold">PostgreSQL</span>, <span className="text-sky-300 font-semibold">Prisma</span>, <span className="text-red-500 font-semibold">Redis</span> and <span className="text-violet-400 font-semibold">Google Drive API</span>, it enhances the existing Drive experience with clean visuals, smooth navigation, and a responsive design—all while securely connecting via Google’s API so your files stay safe. Whether you're organizing personal documents or collaborating on projects, BetterDrive brings simplicity and speed to your workflow, right in the browser.
+      </p>
+    );},
+  },
+  {
     description: "Society Management Platform",
     title: "SocietySync",
     src: "/converted/p1.webp",

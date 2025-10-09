@@ -17,7 +17,7 @@ export default function Hero() {
           ]}
         />
         <div className="flex items-center justify-center gap-4 mt-8">
-            <a href="/converted/RhythmDoshiBrBr.pdf" download className="bg-gray-100 text-black px-4 py-2 rounded-md font-semibold hover:bg-gray-300 cursor-pointer">Download CV</a>
+            <a href="/converted/MainResume.pdf" download className="bg-gray-100 text-black px-4 py-2 rounded-md font-semibold hover:bg-gray-300 cursor-pointer">Download CV</a>
             <a href="#contact" className="bg-[#243341] hover:bg-[#18212F] text-white px-4 py-2 rounded-md font-semibold cursor-pointer">Contact Me</a>
         </div>
     </BackgroundGradientAnimation>
