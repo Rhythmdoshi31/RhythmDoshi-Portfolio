@@ -326,7 +326,7 @@ const cards = [
   },
   {
     description: "Online Chat Application",
-    title: "Lively",
+    title: "LivelyChat",
     src: "/converted/p3.webp",
     ctaText: "Visit",
     gitLink: "https://github.com/Rhythmdoshi31/Lively",
