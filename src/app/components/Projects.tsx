@@ -236,7 +236,7 @@ const cards = [
   description: "Google Drive That Feels Right",
   title: "BetterDrive",
   src: "/converted/Bdrive.webp",
-  ctaText: "Join Waitlist",
+  ctaText: "Visit",
   ctaLink: "https://betterdrive.rhythmdoshi.site",
   gitLink: "https://github.com/Rhythmdoshi31/BetterDrive",
   content: () => {
@@ -330,7 +330,7 @@ const cards = [
     src: "/converted/p3.webp",
     ctaText: "Visit",
     gitLink: "https://github.com/Rhythmdoshi31/Lively",
-    ctaLink: "https://lively.rhythmdoshi.site/",
+    ctaLink: "https://lively.rhythmdoshi.site/ts",
     content: () => {
       return (
         <p>

@@ -82,7 +82,7 @@ export default function ContactForm({ cooldown, startCooldown }: ContactFormProp
             required
             disabled={isLoading || cooldown > 0}
             className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all disabled:opacity-50"
-            placeholder="projectmayhem@fc.com"
+            placeholder="projectmayhem@fc.com (Phone: +91 99816 03789)"
           />
         </div>
 
